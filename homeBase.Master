@@ -1,0 +1,122 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="homeBase.Master.cs" Inherits="myPortfolio.Site1" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <asp:ContentPlaceHolder ID="head" runat="server">
+         <title>My PortFolio | Home | Abiraj</title>
+    </asp:ContentPlaceHolder>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="assets/css/mycss.css" rel="stylesheet" type="text/css"/>
+    <script src="assets/js/jquery.min.js"></script>
+</head>
+<body class="bg-bs-purple ">
+    <div class="container">
+        <div class="row min-dev-height justify-content-between">
+            <div class="col-sm-3 ">
+                <nav class="sidenav h-100 bg-dark">
+                    <div class="navhead d-flex justify-content-between flex-nowrap p-2">
+                        <div class="title d-flex align-items-center">
+                            <span class="d-inline-block">My PortFolio</span>
+                            <asp:ContentPlaceHolder ID="home" runat="server">
+                                <a href="/home.aspx" class="text-decoration-none d-inline-block ml-2 sticky-top" style="width:30px;height:30px;border-radius:15px;background-image:radial-gradient(#ccc,blue,red);"></a>
+                            </asp:ContentPlaceHolder>
+                        </div>
+                        <div class="dropdown-btn btn text-white" data-target ="navbody1">|||</div>
+                    </div>
+                    <div class="navbody list-group show" id ="navbody1">
+                        <asp:ContentPlaceHolder ID="myGallery" runat="server">
+                            <a href="myGallery.aspx" class="sidenav-btn ">My Gallery</a>
+                        </asp:ContentPlaceHolder>
+                        <asp:ContentPlaceHolder ID="myCV" runat="server">
+                            <a href="myCV.aspx" class="sidenav-btn ">My CV</a>
+                        </asp:ContentPlaceHolder>
+                        <asp:ContentPlaceholder ID="myProjects" runat="server">
+                            <a href="myProjects.aspx" class="sidenav-btn ">Projects and Progress</a>
+                        </asp:ContentPlaceholder>
+                        <asp:ContentPlaceholder ID="myRewards" runat="server">
+                            <a href="myRewards.aspx" class="sidenav-btn ">Experience and Rewards</a>
+                        </asp:ContentPlaceholder>
+                    </div>
+                </nav>
+            </div>
+            <div class="col-sm-9">
+                <div class="navbar bg-dark">
+                    <asp:ContentPlaceHolder ID="targets" runat="server">
+                        My Brief Description
+                    </asp:ContentPlaceHolder>
+                   
+                </div>
+                <div class="content mt-5">
+                    <asp:ContentPlaceHolder ID="content" runat="server">
+                        Content here
+                    </asp:ContentPlaceHolder>
+                </div>
+            </div>
+        </div>
+       
+    </div>
+</body>
+<script type="text/javascript">
+    var height = window.innerHeight;
+    var width = window.innerWidth;
+    const elems = document.getElementsByClassName("min-dev-height");
+    const sidenav = document.getElementsByClassName("sidenav");
+    const dropdown = document.getElementsByClassName("dropdown-btn");
+    forceResizing();
+    window.onresize = forceResizing;
+    function forceResizing() {
+        height = window.innerHeight;
+        width = window.innerWidth;
+        if (width >= 576) {
+            minDevHeight();
+            for (var i = 0; i < sidenav.length; i++) {
+                sidenav[i].style.position = "fixed";
+                sidenav[i].style.height = "inherit";
+            }
+        }
+        else {
+            for (var i = 0; i < elems.length; i++) {
+                elems[i].style.height = "auto";
+            }
+            //altering sidebar on resizing window
+            for (var i = 0; i < sidenav.length; i++) {
+                sidenav[i].style.position =  "relative";
+                sidenav[i].style.height = "auto";
+            }
+        }
+
+    }
+    function minDevHeight () {
+        for (var i = 0; i < elems.length; i++) {
+            elems[i].style.height = height + "px";
+        }
+    }
+    if (dropdown) {
+        for (var i = 0; i < dropdown.length; i++) {
+            dropdown[i].addEventListener("click", dropdownToggle, false);
+        }
+        function dropdownToggle() {
+            var dtid = this.getAttribute("data-target");
+            var dropitem = document.getElementById(dtid);
+            var attr = dropitem.getAttribute("class");
+            var classlist = attr.split(' ');
+            if (classlist.includes("hide")) {
+                dropitem.style.display = "block";
+                dropitem.classList.remove("hide");
+                dropitem.classList.add("show");
+            }
+            else {
+                dropitem.style.display = "none";
+                dropitem.classList.remove("show");
+                dropitem.classList.add("hide");
+            }
+            
+        }
+    }
+</script>
+<script src="assets/js/bootstrap.min.js"></script>
+</html>

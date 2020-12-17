@@ -1,0 +1,163 @@
+﻿body {
+    background-color: #6610f2;
+}
+.active {
+    background-color: #6610f2;
+    border:0px solid #000;
+}
+.navhead {
+    background: #6610f2;
+    margin-bottom:0px;
+}
+a.active:hover {
+    background-image: linear-gradient(to right, #d63384 0%,#6610f2 25%);
+    color: white;
+    transition:background .1s linear;
+}
+a.sidnav-btn:hover {
+    color: #6610f2;
+}
+
+.sidenav-btn{
+    display:block;
+    margin:5px 0px ;
+    text-decoration:none;
+    padding:10px 5px;
+    border:1px solid rgba(0,0,0,0);
+}
+a.sidenav-btn:first-child{
+    margin-top:0px;
+}
+.sidenav-btn:hover{
+    border:1px solid #6610f2;
+}
+body *{
+    color:white;
+}
+.sidenav{
+    position:fixed;
+    left:1px;
+    top:0px;
+    width:inherit;
+}
+.navTitle {
+    border-bottom: 1px solid #d63384;
+}
+.navbody{
+    margin-top:4px;
+}
+sidenav.show{
+    display:block;
+}
+sidenav.hide{
+    display:none;
+}
+.navbar{
+    min-height:100px;
+    position:relative;
+    padding:0px 10px;
+    text-align:center;
+}
+.photo-box{
+    width:300px;
+    border-radius:100px;
+}
+.photo-box img{
+    width:100%;
+    height:auto;
+}
+.content-item-body{
+    min-height:200px;
+}
+
+
+/*-----------Home CSS---------------*/
+
+.item-holder{
+
+}
+.home-item {
+    min-width: 250px;
+    min-height: 250px;
+    background-color: #212529;
+    margin: 10px;
+    border-radius: 5px;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content:center;
+    transform:scale(1.0);
+    transition:transform .1s linear;
+    overflow:hidden;
+}
+.home-item:hover {
+    transform: scale(1.1) translate(-5px,-5px);
+    transition: transform .1s linear;
+    color: #6610f2;
+    font-weight:bolder;
+}
+/*-----------Home CSS---------------*/
+/*-------------my Rewards----------*/
+
+.myreward-bg{
+    position:fixed;
+}
+.myreward-bg img{
+    opacity:.3;
+}
+.start-img{
+    margin-top:100px;
+    display:block;
+    text-align:center;
+    margin-bottom:100px;
+}
+.award-item{
+    position:relative;
+    margin-top:100px;
+}
+/*-------------my Rewards----------*/
+/*---------------myCV-------------*/
+
+.cv-img img{
+    width:100%;
+    height:auto;
+    border-radius:5px;
+}
+
+/*---------------myCV-------------*/
+
+@media screen and (max-width:576px){
+    .navbar {
+        margin-top: 10px;
+        max-height: 30px;
+        padding: 0px 5px;
+        
+    }
+    .photo-box{
+        width:100%;
+        height:auto;
+        border-radius:50%;
+    }
+    /*-----------Home CSS---------------*/
+    /* myGalllery*/
+
+    .gallery-item{
+        position:relative;
+        min-height:250px;
+    }
+    .item-desc, .item-image{
+        display:inline-block;
+        height:inherit;
+    }
+
+
+    .item-holder {
+        justify-content:center;
+    }
+
+    .home-item {
+        margin:10px 2px;
+
+    }
+    /*-----------Home CSS---------------*/
+}

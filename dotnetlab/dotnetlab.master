@@ -1,0 +1,61 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="dotnetlab.master.cs" Inherits="myPortfolio.dotnetlab.dotnetlab" %>
+
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script src="../assets/js/jquery.min.js"></script>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link href="assets/css/mycss1.css" rel="stylesheet" />
+    <title>My Website</title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+
+            <nav class="navbar navbar-expand-lg  mbg-dark pt-5 pb-0">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <a class="navbar-brand" href="#">.NET</a>
+
+                <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+                    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                        <asp:ContentPlaceHolder ID="navbar" runat="server">
+                        </asp:ContentPlaceHolder>
+                    </ul>
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Log out</button>
+                </div>
+            </nav>
+            <div class="container">
+                  <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+
+                </asp:ContentPlaceHolder>
+            </div>
+              
+        </div>
+    </form>
+    <div class="myportfolio-shortcut btn btn-info">
+        <a href="../home.aspx">myPortfolio</a>
+    </div>
+    <style type="text/css">
+        .myportfolio-shortcut{
+            position:fixed;
+            top:10px;
+            right:10px;
+            z-index:1888;
+        }
+        .myportfolio-shortcut:hover a{
+            text-decoration:none;
+            color:white;
+        }
+    </style>
+    <script src="assets/javascript/jquery-3.5.1.slim.min .js"></script>
+    <script src="assets/javascript/bootstrap.bundle.min.js"></script>
+</body>
+</html>
